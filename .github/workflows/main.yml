@@ -1,30 +1,29 @@
+name: CI/CD Deployment
 
-name: Deployment of Task-Tracker
-
-on:
+on: 
   push:
-  branches: [main]
-  
+    branches: [main]
 jobs:
-  build:
-  runs-on: ubuntu-latest
-  
-  steps:
-  - uses: action/checkout@v2
-  - name: Step Node.js environment
-  - uses: actions/setup-node@v2-beta
-    with:
-      version: 12
+    build:
+      runs-on: ubuntu-latest
       
-  - name: Github Action for Yarn
-    uses: Borales/actions-yarn@v2.1.0
-    with:
-      #yarn cmd 
-      cmd: install
-  - name: creating build
-  - run: CI= false yarn build
-  - name: installing surge
-  - run: npm install -g surge
-  - name: deploying on surge
-  - run: surge ./build http://task-tracker-asadullahkhan.surge.sh --token ${{secrets.SURGE_TOKEN}}
-  
+      steps:
+      - uses: actions/checkout@v2
+      - name: setup node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          version: 12
+      - name: Github Actions of Yarn
+        uses: Borales/actions-yarn@2.1.0
+        with:
+          cmd: install
+          
+      - name: Creating build
+        run: CL=false yarn build
+        
+      - name: install surge
+        run: npm install -g surge
+        
+      - name: depolying on surge
+        run: surge ./build http://task-tracker-asadullahkhan.surge.sh  --token ${{secrets.SURGE_TOKEN}}
+          
