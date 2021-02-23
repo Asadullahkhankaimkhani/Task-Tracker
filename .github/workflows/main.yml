@@ -17,10 +17,9 @@ jobs:
         uses: Borales/actions-yarn@v2.1.0
         with:
           cmd: install
-      - name: fixing Error
-        run: npm install -g --unsafe-perm=true --allow-root
+
       - name: Creating build
-        run: CI=false yarn build
+        run: CI=false npm build
         
       - name: install surge
         run: npm install -g surge
