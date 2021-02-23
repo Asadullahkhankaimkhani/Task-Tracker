@@ -39,6 +39,6 @@ jobs:
     - name: installing surge  
       run: npm install -g surge
         
-      - name: depolying on surge
-        run: surge ./build http://task-tracker-asadullahkhan.surge.sh  --token ${{secrets.SURGE_TOKEN}}
+    - name: depolying on surge
+      run: surge ./build http://task-tracker-asadullahkhan.surge.sh  --token ${{secrets.SURGE_TOKEN}}
           
