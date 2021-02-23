@@ -19,7 +19,7 @@ jobs:
           cmd: install
 
       - name: Creating build
-        run: CI=false npm build
+        run: CI=false npm run-script build
         
       - name: install surge
         run: npm install -g surge
