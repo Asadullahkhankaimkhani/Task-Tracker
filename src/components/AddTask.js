@@ -13,7 +13,7 @@ const onSubmit = (e) =>{
         alert('Please Add Text')
         return
     }
-    onAdd(text,day,reminder)
+    onAdd({text,day,reminder})
     setDay('')
     setText('')
     setReminder(false)

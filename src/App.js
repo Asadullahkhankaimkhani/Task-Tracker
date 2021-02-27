@@ -25,11 +25,10 @@ function App() {
   ])
   // Add Task
   const addTask = (task) => {
-    const id = Math.floor(Math.random()*10000) + 1
+    const id = Math.floor(Math.random() * 10000 + 1)
     const newTask = {id , ...task}
-    setTask ={...tasks,newTask} 
-  }
-
+    setTask([...tasks,newTask])
+}
 
   // Delete Task
 
@@ -51,5 +50,6 @@ const toggleReminder = (id) => {
     </div>
   );
 }
+
 
 export default App;
